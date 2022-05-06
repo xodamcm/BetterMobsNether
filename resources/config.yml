@@ -1,0 +1,39 @@
+---
+# whether mobs spawn at all
+spawnmobs: true
+# write spawn/despawn messages to the console
+# this is noisy and mostly for debugging
+spawnmsgs: false
+# show name tags and health percent if percent is less than 100
+#damagetags: false
+# regain this much health over time when idle
+# setting to 0 disables
+regainhealth: 1
+# mobs will not spawn in any worldname containing one of these strings, put overworld world
+nospawn:
+- world
+- world2
+- end
+- end2
+- end3
+- ressource1
+- ressource2
+- ressource3
+# quantity of mobs to spawn of each type (higher numbers will use a lot more system resources)
+# 3 mobs spawn by default per type, add a mob below to change the spawn quantity, use 0 for none
+# available mobs are:
+Blaze: 3
+Ghast: 1
+ZombiePigman: 5
+Skeleton: 3
+Enderman: 1
+WitherSkeleton: 2
+MagmaCube: 2
+Strider: 2
+Piglin: 4
+Hoglin: 3
+ZombiePigman1: 3
+ZombiePigman2: 4
+ZombiePigman3: 3
+ZombiePigman4: 3
+...

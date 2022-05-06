@@ -1,0 +1,23 @@
+name: BetterMobsNether
+version: 2.0.0
+main: tgwaste\NetherMobs\Main
+api: 4.0.0
+author: tgwaste
+editor: MadoxMC
+commands:
+  killnethermobs:
+    usage: "/killnethermobs"
+    description: "Kill all Nether Mobs"
+    permission: mobsnether.operator
+  listnethermobs:
+    usage: "/listnethermobs"
+    description: "List all Nether Mobs"
+    permission: mobsnether.operator
+  summonnether:
+    usage: "/summonnether <type> [quantity]"
+    description: "Summon a Nether Mob"
+    permission: mobsnether.operator
+permissions:
+  mobsnether.operator:
+    description: allow using nether mob commands
+    default: op
