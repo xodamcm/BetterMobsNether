@@ -14,42 +14,7 @@ easy to use, you must go on config and choose the world you wont mobs  do not sp
 - NetherMobs: https://www.youtube.com/watch?v=obed7TwXeFI
 - EndMobs: https://www.youtube.com/watch?v=ZjUaa9fuRBo
 
-- List Mobs: Overworld https://github.com/xodamcm/BetterMobsOverworld
-     - Bat
-     - Horse
-     - Llama
-     - Ocelot
-     - Parrot
-     - Phantom
-     - Pig
-     - Cat
-     - Chicken
-     - Creeper
-     - Donkey
-     - Enderman
-     - PolarBear
-     - PufferFish
-     - Rabbit
-     - ZombieVillager
-     - Zombie
-     - Skeleton
-     - Witch
-     - Wolf
-     - Spider
-     - Sheep
-     - Salmon
-     - Squid
-     - Cow
-     - Witch
-     - Slime
-     - Fox
-     - Bee
-     - Evoker 
-     - Vindicator
-     - Goat
-     - Axolotl
-    
--   List NetherMobs: https://github.com/xodamcm/BetterMobsNether
+- List NetherMobs: https://github.com/xodamcm/BetterMobsNether
 -    - ZombiePigman 
 -    - Piglin 
 -    - Hoglin 
@@ -59,9 +24,49 @@ easy to use, you must go on config and choose the world you wont mobs  do not sp
 -    - WitherSkeleton 
 -    - MagmaCube 
 -    - Enderman 
--    
--    List EndMobs: https://github.com/xodamcm/BetterMobsEnd
+
+- List EndMobs: https://github.com/xodamcm/BetterMobsEnd
 -    - EnderDragon 
 -    - Enderman 
 -    - Endermite 
 -    - Shulker
+
+- List Mobs: Overworld https://github.com/xodamcm/BetterMobsOverworld
+-    - Bat
+-    - Horse
+-    - Llama
+-    - Ocelot
+-    - Parrot
+-    - Phantom
+-    - Pig
+-    - Cat
+-    - Chicken
+-    - Creeper
+-    - Donkey
+-    - Enderman
+-    - PolarBear
+-    - PufferFish
+-    - ElderGuardian
+-    - Guardian
+-    - Rabbit
+-    - ZombieVillager
+-    - Zombie
+-    - Skeleton
+-    - Witch
+-    - Wolf
+-    - Spider
+-    - Sheep
+-    - Salmon
+-    - Squid
+-    - Cow
+-    - Witch
+-    - Slime
+-    - Fox
+-    - Bee
+-    - Evoker 
+-    - Vindicator
+-    - Goat
+-    - Axolotl
+...more
+    
+
