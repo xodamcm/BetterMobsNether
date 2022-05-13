@@ -25,7 +25,7 @@ class Attributes {
 	
 	public function isFireProof(string $name) : bool {
 		return in_array($name, [
-			"Blaze", "Ghast", "MagmaCube", "ZombiePigman", "WitherSkeleton", "Piglin", "Hoglin", "ZombiePigman1", "ZombiePigman2", "ZombiePigman3", "ZombiePigman4"
+			"Blaze", "Ghast", "MagmaCube", "ZombiePigman", "WitherSkeleton", "Piglin", "Strider", "Hoglin", "ZombiePigman1", "ZombiePigman2", "ZombiePigman3", "ZombiePigman4"
 		]);
 	}
 	
