@@ -70,11 +70,18 @@ class MobsEntity extends Living {
 		return $this->defaultlook;
 	}
 	
+
+	public function isFireProof() : bool {
+		return (new Attributes)->isFireProof($this->getName());
+	}
+	
        public function attack(EntityDamageEvent $e):void{
          $en = $e->getEntity();
-         if($e->getCause() === EntityDamageEvent::CAUSE_FIRE) $e->cancel();
-         }
-         
+		if ($this->isFireProof() == true && $e->getCause() === EntityDamageEvent::CAUSE_FIRE){
+		 $e->cancel(); 
+		 }
+       }
+    
 	public function setDestination(Vector3 $destination) {
 		$this->destination = $destination;
 	}
