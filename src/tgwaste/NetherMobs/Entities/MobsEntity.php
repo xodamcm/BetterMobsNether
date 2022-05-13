@@ -9,6 +9,7 @@ use pocketmine\entity\Entity;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Living;
 use pocketmine\math\Vector3;
+use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\nbt\tag\CompoundTag;
 use tgwaste\NetherMobs\Attributes;
 use tgwaste\NetherMobs\Main;
@@ -44,7 +45,6 @@ class MobsEntity extends Living {
 		if ($this->isFlying() == true or $this->isSwimming() == true) {
 			$this->setHasGravity(false);
 		}
-
 		parent::initEntity($nbt);
 	}
 
@@ -69,7 +69,12 @@ class MobsEntity extends Living {
 	public function getDefaultLook() {
 		return $this->defaultlook;
 	}
-
+	
+       public function attack(EntityDamageEvent $e):void{
+         $en = $e->getEntity();
+         if($e->getCause() === EntityDamageEvent::CAUSE_FIRE) $e->cancel();
+         }
+         
 	public function setDestination(Vector3 $destination) {
 		$this->destination = $destination;
 	}
