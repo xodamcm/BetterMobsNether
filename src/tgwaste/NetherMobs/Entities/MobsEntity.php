@@ -9,8 +9,6 @@ use pocketmine\entity\Entity;
 use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Living;
 use pocketmine\math\Vector3;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\nbt\tag\CompoundTag;
 use tgwaste\NetherMobs\Attributes;
 use tgwaste\NetherMobs\Main;
@@ -42,6 +40,7 @@ class MobsEntity extends Living {
 		if ($this->isFlying() == true or $this->isSwimming() == true) {
 			$this->setHasGravity(false);
 		}
+
 		parent::initEntity($nbt);
 	}
 
@@ -66,11 +65,7 @@ class MobsEntity extends Living {
 	public function getDefaultLook() {
 		return $this->defaultlook;
 	}
-	
-	/**public function isFireProof() : bool {
-		return (new Attributes)->isFireProof($this->getName());
-	}*/
-       
+
 	public function setDestination(Vector3 $destination) {
 		$this->destination = $destination;
 	}
@@ -91,7 +86,7 @@ class MobsEntity extends Living {
 		$this->attackdelay = $attackdelay;
 	}
 
-	public function getAttackDelay() : bool {
+	public function getAttackDelay() {
 		return $this->attackdelay;
 	}
 
@@ -103,6 +98,7 @@ class MobsEntity extends Living {
 			$this->timer = 0;
 			$this->setMovementSpeed(2.00);
 		}
+		//$this->damageTag();
 		parent::knockBack($x, $z, $force);
 	}
 
@@ -135,16 +131,6 @@ class MobsEntity extends Living {
 		return (new Attributes)->isNetherMob($this->getName());
 	}
 
-	/**public function isSwimming() : bool {
-		$swim = (new Attributes)->isSwimming($this->getName());
-		$ticks = $this->getAirSupplyTicks();
-		$maxticks = $this->getMaxAirSupplyTicks();
-		if ($swim == true and $this->isBreathing() == false and $ticks < ($maxticks/2)) {
-			$this->setAirSupplyTicks($maxticks);
-		}
-		return $swim;
-	}
-*/
 	public function fall(float $fallDistance) : void {
 	}
 }
