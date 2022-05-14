@@ -17,9 +17,18 @@ class Listen implements Listener {
 		$entity = $event->getEntity();
 	}
 
-	public function onEntityDamageEvent(EntityDamageEvent $event) {
-		$entity = $event->getEntity();
-	}
+       public function onEntityDamageEvent(EntityDamageEvent $e) : void{
+         $en = $e->getEntity();
+       //if ($this->isFireProof() == true){
+       if ($e->getCause() === EntityDamageEvent::CAUSE_FIRE){
+       $e->cancel();
+       } elseif  ($e->getCause() === EntityDamageEvent::CAUSE_LAVA) { 
+       $e->cancel();
+       } elseif ($e->getCause() === EntityDamageEvent::CAUSE_FIRE_TICK) {
+       $e->cancel();
+              }
+        }
+ //}
 
 	public function onEntityDespawnEvent(EntityDespawnEvent $event) {
 		$entity = $event->getEntity();
