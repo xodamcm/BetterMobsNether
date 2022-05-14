@@ -70,24 +70,6 @@ class MobsEntity extends Living {
 	/**public function isFireProof() : bool {
 		return (new Attributes)->isFireProof($this->getName());
 	}*/
-
-
-	   public function onEntityDamageByEntityEvent(EntityDamageByEntityEvent $event) {
-		$entity = $event->getEntity();
-	}
-       
-       public function onEntityDamageEvent(EntityDamageEvent $e) : void{
-         $en = $e->getEntity();
-       //if ($en->isFireProof() == true){
-       if ($e->getCause() === EntityDamageEvent::CAUSE_FIRE){
-       $e->cancel();
-       } elseif  ($e->getCause() === EntityDamageEvent::CAUSE_LAVA) { 
-       $e->cancel();
-       } elseif ($e->getCause() === EntityDamageEvent::CAUSE_FIRE_TICK) {
-       $e->cancel();
-       }
-  }
-  //}
        
 	public function setDestination(Vector3 $destination) {
 		$this->destination = $destination;
