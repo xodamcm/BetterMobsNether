@@ -10,6 +10,7 @@ use pocketmine\entity\EntitySizeInfo;
 use pocketmine\entity\Living;
 use pocketmine\math\Vector3;
 use pocketmine\event\entity\EntityDamageEvent;
+use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\nbt\tag\CompoundTag;
 use tgwaste\NetherMobs\Attributes;
 use tgwaste\NetherMobs\Main;
@@ -30,11 +31,7 @@ class MobsEntity extends Living {
 	}
 
 	public function initEntity(CompoundTag $nbt) : void {
-		//$this->setCanClimb(true);
 		$this->setImmobile(false);
-		//$this->setHealth(20);
-		//$this->setMaxHealth(20);
-		//$this->setMovementSpeed(1.00);
 		$this->setHasGravity(true);
 
 		$this->attackdelay = 0;
@@ -70,18 +67,28 @@ class MobsEntity extends Living {
 		return $this->defaultlook;
 	}
 	
-
-	public function isFireProof() : bool {
+	/**public function isFireProof() : bool {
 		return (new Attributes)->isFireProof($this->getName());
+	}*/
+
+
+	   public function onEntityDamageByEntityEvent(EntityDamageByEntityEvent $event) {
+		$entity = $event->getEntity();
 	}
-	
-       public function attack(EntityDamageEvent $e):void{
+       
+       public function onEntityDamageEvent(EntityDamageEvent $e) : void{
          $en = $e->getEntity();
-		if ($this->isFireProof() == true && $e->getCause() === EntityDamageEvent::CAUSE_FIRE){
-		 $e->cancel(); 
-		 }
+       //if ($en->isFireProof() == true){
+       if ($e->getCause() === EntityDamageEvent::CAUSE_FIRE){
+       $e->cancel();
+       } elseif  ($e->getCause() === EntityDamageEvent::CAUSE_LAVA) { 
+       $e->cancel();
+       } elseif ($e->getCause() === EntityDamageEvent::CAUSE_FIRE_TICK) {
+       $e->cancel();
        }
-    
+  }
+  //}
+       
 	public function setDestination(Vector3 $destination) {
 		$this->destination = $destination;
 	}
@@ -102,28 +109,9 @@ class MobsEntity extends Living {
 		$this->attackdelay = $attackdelay;
 	}
 
-	public function getAttackDelay() {
+	public function getAttackDelay() : bool {
 		return $this->attackdelay;
 	}
-
-	/**public function damageTag() {
-		$damagetags = Main::$instance->damagetags;
-
-		$name = $this->getName();
-		$health = $this->getHealth();
-		$maxhealth = $this->getMaxHealth();
-		$percent = (int)(($health * 100.0) / $maxhealth);
-
-		if ($damagetags == true and $percent < 100) {
-			$this->setNameTag("$name §c♥§a $percent §r");
-		} else {
-			$damagetags = false;
-			$this->setNameTag($this->getName());
-		}
-
-		//$this->setNameTagVisible($damagetags);
-		//$this->setNameTagAlwaysVisible($damagetags);
-	}*/
 
 	public function knockBack(float $x, float $z, float $force = 0.4, ?float $verticalLimit = 0.4): void {
 		if ($this->isHostile() == true) {
@@ -133,7 +121,6 @@ class MobsEntity extends Living {
 			$this->timer = 0;
 			$this->setMovementSpeed(2.00);
 		}
-		//$this->damageTag();
 		parent::knockBack($x, $z, $force);
 	}
 
@@ -165,10 +152,6 @@ class MobsEntity extends Living {
 	public function isNether() : bool {
 		return (new Attributes)->isNetherMob($this->getName());
 	}
-
-	/**public function isSnow() : bool {
-		return (new Attributes)->isSnowMob($this->getName());
-	}*/
 
 	/**public function isSwimming() : bool {
 		$swim = (new Attributes)->isSwimming($this->getName());
