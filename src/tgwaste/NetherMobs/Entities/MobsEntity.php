@@ -126,6 +126,10 @@ class MobsEntity extends Living {
 	public function isHostile() : bool {
 		return (new Attributes)->isHostile($this->getName());
 	}
+	
+	public function isFireProof() : bool {
+		return (new Attributes)->isFireProof($this->getName());
+	}
 
 	public function isNether() : bool {
 		return (new Attributes)->isNetherMob($this->getName());
