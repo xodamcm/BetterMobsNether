@@ -176,15 +176,17 @@ class Motion {
 			return;
 		}
 
-		if ($entity->getAttackDelay() > 20 && $dist < 2) {
+		if ($entity->getAttackDelay() > 20) {
+                     if ($entity->getPosition()->distance($target->getPosition()) <= 2.0) {
 			$entity->setAttackDelay(0);
 			$ev = new EntityDamageByEntityEvent($entity, $target, EntityDamageEvent::CAUSE_ENTITY_ATTACK, $damage);
 			$target->attack($ev);
 		}
+            }
 
 		$entity->setAttackDelay($entity->getAttackDelay() + 1);
 
 		$pos = $target->getPosition();
 		$entity->setDestination(new Vector3($pos->x, 0, $pos->z));
-  }
-}
+                }
+            }
