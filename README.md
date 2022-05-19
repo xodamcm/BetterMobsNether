@@ -1,7 +1,7 @@
 # BetterMobsNether
 
 *BetterMobs*
-⚠️ **__Need contributor or help to fix:__**
+⚠️ **__Need contributor or help to add:__**
 
 ⚪️ **__End:__**
 - Add Boss Bar (EnderDragon)👈
